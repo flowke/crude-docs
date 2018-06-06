@@ -1,0 +1,27 @@
+{
+  "name": "rude-docs",
+  "version": "1.0.0",
+  "description": "rud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowke/rude-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowke/rude-docs/issues"
+  },
+  "homepage": "https://github.com/flowke/rude-docs#readme",
+  "dependencies": {
+    "antd": "^3.5.4",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}
