@@ -4,7 +4,7 @@
   "description": "rud",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon entry.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,11 @@
   "homepage": "https://github.com/flowke/rude-docs#readme",
   "dependencies": {
     "antd": "^3.5.4",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "koa": "^2.5.1",
     "koa-router": "^7.4.0",
+    "nodemon": "^1.17.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   }
