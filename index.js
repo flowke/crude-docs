@@ -6,13 +6,12 @@ const React = require('react');
 
 const RDS = require('react-dom/server');
 
-
 const app = new Koa();
 const router = new Router();
 
 router.get('/', ctx=>{
 
-  ctx.body =RDS.renderToString(
+  ctx.body = RDS.renderToString(
     <div>
       <p>dslfj</p>
       <em>fff</em>
