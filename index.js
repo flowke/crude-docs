@@ -2,6 +2,7 @@
 const Koa = require('koa');
 const Router = require('koa-router');
 const React = require('react');
+const path = require('path');
 
 
 const RDS = require('react-dom/server');
