@@ -1,0 +1,53 @@
+@import '../static/variable';
+.app-header{
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  background-color: #468259;
+  height: 50px;
+  line-height: 50px;
+
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  .content-wrap{
+    max-width: $mainWidth;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 $mainPadding;
+  }
+
+  a{
+    color: #EBEBEB;
+    display: inline-block;
+  }
+
+  a.logo{
+    font-weight: bold;
+    font-size: 20px;
+    width: 140px;
+
+
+    &.active{
+      color: #ED592A;
+    }
+  }
+
+
+
+  a.nav-item{
+    padding: 0 15px;
+
+    &:hover{
+      color: #fff;
+    }
+
+    &.active{
+      font-weight: bold;
+      color: #fff;
+    }
+  }
+
+}

@@ -8,12 +8,12 @@ pg.version('0.0.1', '-v, --version');
 pg
   .command('help')
   .description('使用帮助')
-  .action(()=>pg.outputHelp())
+  .action(()=>pg.outputHelp());
 
 pg
   .command('create [dir]')
   .description('初始化项目')
-  .action(dir=>console.log('create %s', dir))
+  .action(dir=>console.log('create %s', dir));
 
 pg
   .command('start [dir]')
