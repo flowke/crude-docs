@@ -1,11 +1,13 @@
 import React,{Fragment} from 'react';
 import Frame from './layout/mainFrame';
+import ReactDOM from 'react-dom';
 import {
   Row,
   Col,
   List
 } from 'antd';
 import './static/doc.scss';
+import './static/main.scss';
 
 let {Item} = List;
 
@@ -40,7 +42,13 @@ let listData = [
   },
 ]
 
-export default function Doc(){
+function Doc({initData}){
+
+  let {
+    article
+  } = initData;
+
+
   return (
     <Frame>
       <Row className="docpage-body">
@@ -62,12 +70,19 @@ export default function Doc(){
                   }}
                 />
               </div>
-
             )
           })}
         </Col>
-        <Col span={19}></Col>
+        <Col span={19} dangerouslySetInnerHTML={{
+          __html: article
+        }}>
+        </Col>
       </Row>
     </Frame>
   )
 }
+
+ReactDOM.render(
+  <Doc initData={INITDATA}/>,
+  document.getElementById('root')
+);

@@ -9,7 +9,7 @@ export default function Header(){
           href="#" className="logo"
         >Crudoc</a>
         <nav>
-          <a href="#" className="nav-item active">文档</a>
+          <a href="/docs" className="nav-item active">文档</a>
           <a href="#" className="nav-item">博客</a>
         </nav>
       </div>

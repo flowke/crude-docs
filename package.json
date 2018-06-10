@@ -9,7 +9,8 @@
   "scripts": {
     "start": "nodemon entry.js",
     "dev": "nodemon ./bin/crude start",
-    "mode": "nodemon scripts/start.js"
+    "mode": "nodemon scripts/start.js",
+    "build:assets": "webpack --config webpackConf/dev.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,12 @@
   "homepage": "https://github.com/flowke/rude-docs#readme",
   "dependencies": {
     "antd": "^3.5.4",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-import": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.19",
     "commander": "^2.15.1",
     "css-loader": "^0.28.11",
     "express": "^4.16.3",
@@ -37,6 +40,7 @@
     "koa-router": "^7.4.0",
     "koa-webpack-dev-middleware": "^2.0.2",
     "markdown-it": "^8.4.1",
+    "memory-fs": "^0.4.1",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
@@ -53,6 +57,7 @@
     "webpack-cli": "^3.0.3",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-hot-middleware": "^2.22.2",
-    "webpack-isomorphic-tools": "^3.0.6"
+    "webpack-isomorphic-tools": "^3.0.6",
+    "webpack-manifest-plugin": "^2.0.3"
   }
 }

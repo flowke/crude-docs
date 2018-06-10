@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Frame from './layout/mainFrame';
 import './static/home.scss';
+import './static/main.scss';
 
-
-export default class Name extends Component{
+class Home extends Component{
   constructor(props){
       super(props);
   }
@@ -16,3 +17,8 @@ export default class Name extends Component{
     )
   }
 }
+
+ReactDOM.render(
+  <Home></Home>,
+  document.getElementById('root')
+);

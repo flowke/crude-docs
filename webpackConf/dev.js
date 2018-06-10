@@ -1,6 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const IsoPlugin = require('webpack-isomorphic-tools/plugin');
 const Html = require('html-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 let config = {
   assets: {
@@ -11,10 +14,14 @@ let config = {
 
 module.exports = {
 
-  entry: './website/app.js',
+  entry: {
+    doc: './website/doc.js',
+    home: './website/home.js',
+  },
   output: {
-    filename: 'main.js',
-    publicPath: '/'
+    filename: '[name].js',
+    publicPath: '/',
+    path: path.resolve('__dirname', '../dist')
   },
 
   mode: 'development',
@@ -40,8 +47,28 @@ module.exports = {
   },
 
   plugins: [
-    new Html({
-      template: 'website/index.html'
-    })
-  ]
+
+    new ManifestPlugin({
+      fileName: '../assets-manifest.json'
+    }),
+    new CleanWebpackPlugin(['dist/*'], {
+      root: path.resolve(__dirname, '../')
+    }),
+
+  ],
+
+  optimization: {
+    splitChunks: {
+      automaticNameDelimiter: '-',
+      chunks: 'all',
+      cacheGroups: {
+        default: false,
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  }
 };
