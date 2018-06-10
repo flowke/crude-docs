@@ -1,9 +1,15 @@
-body{
+body, html{
+
   background-color: #F9F9F9;
+}
+
+#root{
+
 }
 .docpage-body{
   padding: 0 20px;
   margin-top: 45+50px;
+  height: 100%;
 }
 
 .category-block{
@@ -26,5 +32,12 @@ body{
     &:hover{
       color: #2e8555;
     }
+    &.active{
+      color: #2e8555;
+    }
   }
+}
+
+.article-wrap, .outline-wrap{
+
 }

@@ -80,9 +80,7 @@ module.exports = {
 
           return accu;
         }
-
         return accu;
-
       },{});
 
       data.source = rut[2];

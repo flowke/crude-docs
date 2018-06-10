@@ -1,14 +1,12 @@
+const sideBar = require('./sideBar');
+
 module.exports = {
-  nav: [
-    {title: '首页'}
+  navLink: [
+    {label: '首页', page: 'home'},
+    {label: '文档', page: 'docs', type: 'docs'},
+    {label: 'API', page: 'docs', type: 'api'},
+    {label: 'GitHub', href: 'https://github.com/flowke/rude-docs'},
   ],
 
-  docs: [
-    {
-      title: '开始',
-      list: [
-        'install.md'
-      ]
-    }
-  ]
+  sideBar
 };

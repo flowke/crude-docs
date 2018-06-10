@@ -1,4 +1,3 @@
-const express = require('express');
 const webpack = require('webpack');
 const Koa = require('koa');
 const Router = require('koa-router');
@@ -8,7 +7,7 @@ const openBrowser = require('react-dev-utils/openBrowser');
 const swig = require('swig');
 const fs = require('fs');
 const path = require('path');
-const MemoryFS = require('memory-fs');
+const {sideBar} = require('../SiteCfg');
 const {
   renderFile,
   md2Html,
@@ -16,14 +15,11 @@ const {
   parseMeta
 } = require('../helper/contentHandle');
 
-let memoryFS = new MemoryFS();
-
 swig.setDefaults({
   cache: false,
 });
 
-
-let templatePath = path.resolve(__dirname, '../website/index.html');
+let templatePath = path.resolve(__dirname, '../website/template/index.html');
 
 const app = new Koa();
 const router = new Router();
@@ -48,26 +44,28 @@ router.get('/', (ctx)=>{
 
   let {manifest} = ctx;
 
-  let data = {
+  let tpData = {
     pageScript: manifest['home.js'],
-    vendorScript: manifest['vendor.js']
+    vendorScript: manifest['vendor.js'],
+    initData: JSON.stringify({
+      curtLink: 'home'
+    })
   };
 
-  let html = swig.render(fs.readFileSync(templatePath).toString(), {
-    autoescape: false,
-    locals: data
-  });
+  let html = renderFile(templatePath, tpData);
 
   ctx.body = html;
 
 });
 
-router.get('/docs/*', ctx=>{
+router.get('/:docType/:level/:file', ctx=>{
   let {manifest, params} = ctx;
 
-  let name = stripExt(params[0]);
+  let {docType, level, file} = params;
 
-  let fileName = path.resolve(__dirname, '../docs', name+'.md');
+  let name = stripExt(file);
+
+  let fileName = path.resolve(__dirname, '../docs', docType, `${level}-${name}.md`);
 
   // 从md文件解析出的元数据
   let sourceData = parseMeta(fileName);
@@ -82,20 +80,32 @@ router.get('/docs/*', ctx=>{
 
   // 模板文件的数据
   let tpData = {
-    pageScript: manifest['doc.js'],
+    pageScript: manifest['docs.js'],
     vendorScript: manifest['vendor.js'],
     title: sourceData.title,
     initData: JSON.stringify({
-      article
+      article,
+      curtLink: docType,
+      docs: sideBar[docType].map(elt=>{
+        let links = elt.list.map(item=>{
+          return {
+            url: `/${docType}/${elt.level}/${item[0]}.html`,
+            active: item[0] === name
+          }
+        } );
+
+        elt.links = links;
+
+        return elt;
+      })
     })
   };
 
-
-  let html = renderFile(templatePath, tpData)
+  let html = renderFile(templatePath, tpData);
 
   ctx.body = html;
 
-})
+});
 
 app.listen(3001,()=>{
   let open = openBrowser('http://localhost:3001');

@@ -15,7 +15,7 @@ let config = {
 module.exports = {
 
   entry: {
-    doc: './website/doc.js',
+    docs: './website/docs.js',
     home: './website/home.js',
   },
   output: {
