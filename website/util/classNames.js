@@ -4,20 +4,16 @@ export default function(...args) {
 
     let type = Object.prototype.toString.call(elt);
     if(type==='[object String]'){
-      return `${accu}${elt} `
+      accu.push(elt);
     }else if(type==='[object Object]'){
 
-      let ln = '';
-
       for(let name in elt){
-        if(elt[name]===true) ln+= `${name} `;
+        if(elt[name]===true) accu.push(name);
       }
-
-      return `${accu}${ln} `
-
-    }else{
-      return accu;
     }
-  }, '')
+
+    return accu;
+
+  }, []).join(' ')
 
 }

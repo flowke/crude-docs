@@ -24,6 +24,6 @@ pg
   .command('build [dir]')
   .description('生成网站')
   .option('-o, --output <dir>', '输出目录')
-  .action((dir, options)=>console.log('create %s, output %s',dir, options.output))
+  .action((dir, options)=>require('../lib/script_build'))
 
 pg.parse(process.argv);

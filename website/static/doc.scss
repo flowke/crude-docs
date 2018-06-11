@@ -15,6 +15,8 @@ body, html{
 .category-block{
   margin-bottom: 20px;
 
+  width: 200px;
+
   h3{
     font-weight: 600;
     color: #393939;
@@ -36,6 +38,15 @@ body, html{
       color: #2e8555;
     }
   }
+
+  .block-header{
+    vertical-align: middle;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+  }
+
 }
 
 .article-wrap, .outline-wrap{

@@ -10,6 +10,7 @@
         "libraryDirectory": "es",
         "style": "css"
       }
-    ]
+    ],
+    "transform-class-properties"
   ]
 }
