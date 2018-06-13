@@ -9,9 +9,9 @@
   "scripts": {
     "start": "nodemon entry.js",
     "dev": "nodemon ./bin/crude start",
-    "build": "bin/crude build",
+    "build": "node bin/crude build",
     "mode": "nodemon scripts/start.js",
-    "build:assets": "webpack --config webpackConf/dev.js"
+    "buil": "webpack --config webpackConf/dev.js"
   },
   "repository": {
     "type": "git",
@@ -27,9 +27,12 @@
   "dependencies": {
     "antd": "^3.5.4",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-import": "^1.7.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",

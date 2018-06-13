@@ -1,6 +1,7 @@
 {
   "presets": [
-    "react"
+    "react",
+    "env"
   ],
   "plugins": [
     [
@@ -11,6 +12,7 @@
         "style": "css"
       }
     ],
-    "transform-class-properties"
+    "transform-class-properties",
+    "syntax-dynamic-import"
   ]
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require("babel-register");
+require('babel-register');
 const pg = require('commander');
 
 pg.version('0.0.1', '-v, --version');
@@ -15,15 +15,15 @@ pg
   .description('初始化项目')
   .action(dir=>console.log('create %s', dir));
 
-pg
-  .command('start [dir]')
-  .description('开始写作')
-  .action(require('../lib/script_start'))
+// pg
+//   .command('start [dir]')
+//   .description('开始写作')
+//   .action(require('../lib/script_start'))
 
 pg
   .command('build [dir]')
   .description('生成网站')
   .option('-o, --output <dir>', '输出目录')
-  .action((dir, options)=>require('../lib/script_build'))
+  .action((dir, options)=>require('../lib/script_build')())
 
 pg.parse(process.argv);
