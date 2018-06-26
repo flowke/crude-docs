@@ -4,7 +4,7 @@ import Frame from './layout/mainFrame';
 import './static/home.scss';
 import './static/main.scss';
 
-class Home extends Component{
+export default class Home extends Component{
   constructor(props){
       super(props);
   }
@@ -17,8 +17,3 @@ class Home extends Component{
     )
   }
 }
-
-ReactDOM.render(
-  <Home></Home>,
-  document.getElementById('root')
-);

@@ -13,32 +13,41 @@ import './static/main.scss';
 
 let {Item} = List;
 
+let CurtLinkContext = React.createContext();
+
+export {
+  CurtLinkContext
+}
 
 export default function Doc(props){
 
   let {
     article,
-    docs
-  } = props.initData;
+    docs,
+    curtLink
+  } = props;
 
   return (
-    <Frame>
-      <Row className="docpage-body">
-        <Col span={5} className="outline-wrap">
-          {docs.map((block, indx)=>(
-            <OutlineBlock key={indx} block={block} />
-          ))}
-        </Col>
-        <Col
-          className="article-wrap"
-          span={19}
-          dangerouslySetInnerHTML={{
-            __html: article
-          }}
-        >
-        </Col>
-      </Row>
-    </Frame>
+    <CurtLinkContext.Provider value={curtLink}>
+      <Frame>
+        <Row className="docpage-body">
+          <Col span={5} className="outline-wrap">
+            {docs.map((block, indx)=>(
+              <OutlineBlock key={indx} block={block} />
+            ))}
+          </Col>
+          <Col
+            className="article-wrap"
+            span={19}
+            dangerouslySetInnerHTML={{
+              __html: article
+            }}
+          >
+          </Col>
+        </Row>
+      </Frame>
+    </CurtLinkContext.Provider>
+
   );
 }
 
@@ -103,9 +112,3 @@ class OutlineBlock extends Component {
     )
   }
 }
-
-ReactDOM.render(
-  <Doc initData={INITDATA}/>
-  ,
-  document.getElementById('root')
-);

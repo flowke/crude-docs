@@ -1,7 +1,9 @@
 {
   "presets": [
     "react",
-    "env"
+    [
+      "env"
+    ]
   ],
   "plugins": [
     [

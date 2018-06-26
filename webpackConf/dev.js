@@ -1,74 +1,23 @@
-const path = require('path');
-const webpack = require('webpack');
-const IsoPlugin = require('webpack-isomorphic-tools/plugin');
-const Html = require('html-webpack-plugin');
+const baseCfg = require('./base');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const merge = require('webpack-merge');
 
-let config = {
-  assets: {
-    images: {extensions: ['png']}
-  }
-}
-
-
-module.exports = {
-
-  entry: {
-    docs: './website/docs.js',
-    home: './website/home.js',
-  },
-  output: {
-    filename: '[name].js',
-    publicPath: '/',
-    path: path.resolve('__dirname', '../dist')
-  },
-
+module.exports = merge(baseCfg, {
   mode: 'development',
 
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: [
-          path.resolve(__dirname,'../node_modules')
-        ]
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(c|sc)ss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
       }
     ]
   },
 
   plugins: [
-
     new ManifestPlugin({
-      fileName: '../assets-manifest.json'
+      fileName: '../assets-manifest-dev.json'
     }),
-    new CleanWebpackPlugin(['dist/*'], {
-      root: path.resolve(__dirname, '../')
-    }),
+  ]
 
-  ],
-
-  optimization: {
-    splitChunks: {
-      automaticNameDelimiter: '-',
-      chunks: 'all',
-      cacheGroups: {
-        default: false,
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          chunks: "all"
-        }
-      }
-    }
-  }
-};
+});

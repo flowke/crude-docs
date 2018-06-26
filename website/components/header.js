@@ -1,14 +1,13 @@
 import React,{Component} from 'react';
 import names from '../util/classNames';
 import './header.scss';
+import {CurtLinkContext} from '../docs';
 
 const {navLink, sideBar} = require('../../SiteCfg');
 
 let home = navLink[0];
 
-let {curtLink} = INITDATA;
-
-export default function Header(){
+export default function Header({curtLink}){
   return (
     <header className="app-header">
       <div className="content-wrap">
@@ -19,7 +18,7 @@ export default function Header(){
           {navLink.slice(1).map((link,i)=>{
             let url = '';
 
-
+            
             let active = false;
 
             if(link.page==='docs'){
