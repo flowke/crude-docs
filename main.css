@@ -1,3 +1,100 @@
+.app-header {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  background-color: #468259;
+  height: 50px;
+  line-height: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0; }
+  .app-header .content-wrap {
+    max-width: 1440px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 20px; }
+  .app-header a {
+    color: #EBEBEB;
+    display: inline-block; }
+  .app-header a.logo {
+    font-weight: bold;
+    font-size: 20px;
+    width: 140px; }
+    .app-header a.logo.active {
+      color: #ED592A; }
+  .app-header a.nav-item {
+    padding: 0 15px; }
+    .app-header a.nav-item:hover {
+      color: #fff; }
+    .app-header a.nav-item.active {
+      font-weight: bold;
+      color: #fff; }
+
+
+html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
+  margin: 0;
+  padding: 0; }
+
+header, footer, section, article, aside, nav, hgroup, address, figure, figcaption, menu, details {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th {
+  text-align: left;
+  font-weight: normal; }
+
+html, body, fieldset, img, iframe, abbr {
+  border: 0; }
+
+i, cite, em, var, address, dfn {
+  font-style: normal; }
+
+[hidefocus], summary {
+  outline: 0; }
+
+li {
+  list-style: none; }
+
+sup, sub {
+  font-size: 83%; }
+
+pre, code, kbd, samp {
+  font-family: inherit; }
+
+q:before, q:after {
+  content: none; }
+
+textarea {
+  overflow: auto;
+  resize: none; }
+
+label, summary {
+  cursor: default; }
+
+a, button {
+  cursor: pointer; }
+
+h1, h2, h3, h4, h5, h6, em, strong, b {
+  font-weight: normal; }
+
+del, ins, u, s, a, a:hover {
+  text-decoration: none; }
+
+a {
+  color: #333; }
+
+body {
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif; }
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative; }
+
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
@@ -8902,4 +8999,37 @@ a.ant-btn-lg {
 
 a.ant-btn-sm {
   line-height: 22px; }
+
+body, html {
+  background-color: #F9F9F9; }
+
+.docpage-body {
+  padding: 0 20px;
+  margin-top: 95px;
+  height: 100%; }
+
+.category-block {
+  margin-bottom: 20px;
+  width: 200px; }
+  .category-block h3 {
+    font-weight: 600;
+    color: #393939;
+    font-size: 18px;
+    margin-bottom: 6px; }
+  .category-block a {
+    display: block;
+    padding: 4px 0;
+    padding-left: 10px;
+    color: #717171;
+    transition: color .3s; }
+    .category-block a:hover {
+      color: #2e8555; }
+    .category-block a.active {
+      color: #2e8555; }
+  .category-block .block-header {
+    vertical-align: middle;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer; }
 

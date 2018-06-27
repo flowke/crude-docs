@@ -11,6 +11,8 @@ import {
 import './static/doc.scss';
 import './static/main.scss';
 
+import {Provider as CurtLinkProvider } from './components/linkContext';
+
 let {Item} = List;
 
 let CurtLinkContext = React.createContext();
@@ -28,7 +30,7 @@ export default function Doc(props){
   } = props;
 
   return (
-    <CurtLinkContext.Provider value={curtLink}>
+    <CurtLinkProvider value={curtLink}>
       <Frame>
         <Row className="docpage-body">
           <Col span={5} className="outline-wrap">
@@ -46,7 +48,7 @@ export default function Doc(props){
           </Col>
         </Row>
       </Frame>
-    </CurtLinkContext.Provider>
+    </CurtLinkProvider>
 
   );
 }

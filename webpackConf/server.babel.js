@@ -1,5 +1,27 @@
-import { server } from 'universal-webpack/config'
-import settings from './universal-webpack-settings.json'
-import configuration from './build'
+const merge = require('webpack-merge');
+const config = require('./prod');
+const path = require('path');
 
-export default server(configuration, settings)
+module.exports = merge.strategy({
+  entry: 'replace',
+  output: 'replace',
+})(config, {
+
+  target: 'node',
+
+  entry: './lib/build',
+
+  output: {
+    path: path.resolve(__dirname, '../temp-script'),
+    filename: 'server.js'
+  },
+
+  node: {
+    process: false,
+    global: false,
+    __filename: false,
+    __dirname: false,
+    fs: false
+  }
+
+});

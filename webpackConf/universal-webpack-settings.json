@@ -1,6 +1,0 @@
-{
-  "server": {
-    "input": "./lib/build",
-    "output": "./dist/server.js"
-  }
-}
