@@ -1,4 +1,6 @@
 {
-  "main.css": "main.css",
-  "main.js": "server.js"
+  "docs.css": "docs.css",
+  "docs.js": "js/docs.js",
+  "home.css": "home.css",
+  "home.js": "js/home.js"
 }

@@ -6,8 +6,18 @@ const path = require('path');
 
 const merge = require('webpack-merge');
 
-module.exports = merge(baseCfg, {
-  mode: 'development',
+const config = merge(baseCfg, {
+  mode: 'production',
+
+  entry: {
+    home: './website/home.js',
+    docs: './website/docs.js'
+  },
+
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'js/[name].js'
+  },
 
   module: {
     rules: [
@@ -23,14 +33,8 @@ module.exports = merge(baseCfg, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['dist/*', 'temp-script/*'], {
-      root: path.resolve(__dirname, '../')
-    }),
-    new ManifestPlugin({
-      fileName: '../assets-manifest-dist.json'
-    }),
     new MiniCssExtractPlugin({
-      fileName: '[name].css',
+      fileName: 'css/[name].css',
       chunkFilename: '[name].css'
     })
   ],
@@ -51,3 +55,11 @@ module.exports = merge(baseCfg, {
   }
 
 });
+
+if(process.env.npm_lifecycle_event === 'build:assets'){
+  config.plugins.push(new ManifestPlugin({
+    fileName: '../assets-manifest-dist.json'
+  }))
+}
+
+module.exports = config;

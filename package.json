@@ -9,9 +9,10 @@
   "scripts": {
     "start": "nodemon entry.js",
     "dev": "nodemon ./bin/crude start",
-    "build": "npm-run-all build:server build:run",
-    "build:run": "cross-env NODE_ENV=production node temp-script/server",
-    "build:server": "cross-env NODE_ENV=production webpack --config webpackConf/server.babel.js"
+    "clean": "rimraf dist .temp-script",
+    "build": "npm-run-all clean build:assets build:run",
+    "build:run": "cross-env NODE_ENV=production node lib/script_build",
+    "build:assets": "cross-env NODE_ENV=production webpack --config webpackConf/prod.js"
   },
   "repository": {
     "type": "git",
@@ -57,6 +58,7 @@
     "react": "^16.4.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.0.3",
     "serve-static": "^1.13.2",
     "style-loader": "^0.21.0",
