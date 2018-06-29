@@ -12,11 +12,16 @@
   top: 0;
   left: 0;
 
+
+
   .content-wrap{
     max-width: $mainWidth;
     display: flex;
     margin: 0 auto;
     padding: 0 $mainPadding;
+
+    box-sizing: border-box;
+
   }
 
   a{
@@ -34,8 +39,6 @@
       color: #333;
     }
   }
-
-
 
   a.nav-item{
     padding: 0 15px;

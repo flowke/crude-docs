@@ -7,14 +7,13 @@
     "crude": "bin/crude"
   },
   "scripts": {
-    "start": "nodemon entry.js",
-    "serve": "serve dist",
+    "serve": "npm run build && serve dist",
     "clean:before": "rimraf dist .temp-script",
     "clean:after": "rimraf .temp-script",
+    "dev": "nodemon bin/crude start",
     "build": "npm-run-all clean:before build:assets build:run clean:after",
     "build:run": "cross-env NODE_ENV=production node lib/script_build",
-    "build:assets": "cross-env NODE_ENV=production webpack --config webpackConf/prod.js",
-    "testBuild": "cross-env NODE_ENV=production webpack --config webpackConf/server.babel.js"
+    "build:assets": "cross-env NODE_ENV=production webpack --config webpackConf/prod.js"
   },
   "repository": {
     "type": "git",

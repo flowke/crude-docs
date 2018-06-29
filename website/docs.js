@@ -1,6 +1,5 @@
 import React,{Component, Fragment, createContext} from 'react';
 import Frame from './layout/mainFrame';
-import ReactDOM from 'react-dom';
 import names from './util/classNames';
 import {
   Row,
@@ -8,6 +7,7 @@ import {
   List,
   Icon
 } from 'antd';
+
 import './static/doc.scss';
 import './static/main.scss';
 

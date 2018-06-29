@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Frame from './layout/mainFrame';
+
 import './static/home.scss';
 import './static/main.scss';
 
 import {Provider as CurtLinkProvider } from './components/linkContext';
 
-export default function(props){
+export default function Home(props){
   return (
     <CurtLinkProvider value={props.curtLink}>
       <Frame>
@@ -14,6 +15,5 @@ export default function(props){
         </div>
       </Frame>
     </CurtLinkProvider>
-
   )
 }
