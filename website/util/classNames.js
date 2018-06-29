@@ -1,6 +1,6 @@
 export default function(...args) {
 
-  return args.reduce((accu, elt)=>{
+  let names= args.reduce((accu, elt)=>{
 
     let type = Object.prototype.toString.call(elt);
     if(type==='[object String]'){
@@ -14,6 +14,8 @@ export default function(...args) {
 
     return accu;
 
-  }, []).join(' ')
+  }, []);
+
+  return names.length ? names.join(' ') : '';
 
 }

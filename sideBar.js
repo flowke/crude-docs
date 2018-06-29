@@ -10,6 +10,7 @@ module.exports = {
       level: 'started',
       list: [
         // 0: 文件名
+        // 1: 显示的标题
         ['install', '安装'],
         ['mks', '马克思'],
       ]

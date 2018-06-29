@@ -53,7 +53,6 @@ export default function Doc(props){
   );
 }
 
-
 class OutlineBlock extends Component {
   constructor(props){
     super(props);
@@ -82,14 +81,14 @@ class OutlineBlock extends Component {
           onClick={this.toggle}
         >
           <h3>{block.title}</h3>
-          <Icon
+          {/* <Icon
             type={open? 'up': 'down'}
             style={{
               fontSize: 16,
               fontWeight: 700,
               marginLeft: 10
             }}
-          />
+          /> */}
         </div>
         <List
           style={{

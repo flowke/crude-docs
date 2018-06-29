@@ -4,16 +4,16 @@ import Frame from './layout/mainFrame';
 import './static/home.scss';
 import './static/main.scss';
 
-export default class Home extends Component{
-  constructor(props){
-      super(props);
-  }
+import {Provider as CurtLinkProvider } from './components/linkContext';
 
-  render(){
-    return (
+export default function(props){
+  return (
+    <CurtLinkProvider value={props.curtLink}>
       <Frame>
-        首页内容
+        <div className="home-page" dangerouslySetInnerHTML={{__html: props.content}}>
+        </div>
       </Frame>
-    )
-  }
+    </CurtLinkProvider>
+
+  )
 }

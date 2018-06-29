@@ -8,11 +8,13 @@
   },
   "scripts": {
     "start": "nodemon entry.js",
-    "dev": "nodemon ./bin/crude start",
-    "clean": "rimraf dist .temp-script",
-    "build": "npm-run-all clean build:assets build:run",
+    "serve": "serve dist",
+    "clean:before": "rimraf dist .temp-script",
+    "clean:after": "rimraf .temp-script",
+    "build": "npm-run-all clean:before build:assets build:run clean:after",
     "build:run": "cross-env NODE_ENV=production node lib/script_build",
-    "build:assets": "cross-env NODE_ENV=production webpack --config webpackConf/prod.js"
+    "build:assets": "cross-env NODE_ENV=production webpack --config webpackConf/prod.js",
+    "testBuild": "cross-env NODE_ENV=production webpack --config webpackConf/server.babel.js"
   },
   "repository": {
     "type": "git",
@@ -60,6 +62,7 @@
     "react-dom": "^16.4.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.0.3",
+    "serve": "^9.1.0",
     "serve-static": "^1.13.2",
     "style-loader": "^0.21.0",
     "swig": "^1.4.2",

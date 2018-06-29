@@ -1,6 +1,8 @@
 {
-  "docs.css": "docs.css",
+  "vendor.css": "css/vendor.css",
+  "vendor.js": "js/vendor.js",
+  "docs.css": "css/docs.css",
   "docs.js": "js/docs.js",
-  "home.css": "home.css",
+  "home.css": "css/home.css",
   "home.js": "js/home.js"
 }

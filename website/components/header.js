@@ -14,7 +14,8 @@ export default function Header(){
         <header className="app-header">
           <div className="content-wrap">
             <a
-              href={`/`} className="logo"
+              href={`/`}
+              className={names('logo', {active : curtLink=== '/'})}
             >Crudoc</a>
             <nav>
               {navLink.slice(1).map((link,i)=>{
@@ -23,9 +24,10 @@ export default function Header(){
                 let active = false;
 
                 if(link.page==='docs'){
+                  // 取出第 0 个文档的 link
                   let {list, level} = sideBar[link.type][0];
-                  url = `/${link.type}/${level}/${list[0][0]}`;
-                  active = link.type ===curtLink;
+                  url = `/${link.type}/${level}-${list[0][0]}`;
+                  active = link.type === curtLink;
                 }else if(link.href){
                   url = link.href
                 }else{
@@ -37,7 +39,7 @@ export default function Header(){
                   <a
                     key={i}
                     href={url}
-                    className={names("nav-item",{active})}
+                    className={names("nav-item", {active})}
                     target={link.href? '_blank': '_self'}
                   >{link.label}</a>
                 );
