@@ -13,7 +13,7 @@ pg
 pg
   .command('create [dir]')
   .description('初始化项目')
-  .action(dir=>console.log('create %s', dir));
+  .action((dir)=>require('../lib/script_create')(dir));
 
 pg
   .command('start [dir]')

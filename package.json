@@ -63,6 +63,7 @@
     "sass-loader": "^7.0.3",
     "serve": "^9.1.0",
     "serve-static": "^1.13.2",
+    "shelljs": "^0.8.2",
     "style-loader": "^0.21.0",
     "swig": "^1.4.2",
     "universal-webpack": "^0.6.6",
