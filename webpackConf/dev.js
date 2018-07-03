@@ -2,6 +2,7 @@ const baseCfg = require('./base');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
+const Html = require('html-webpack-plugin');
 
 module.exports = merge(baseCfg, {
   mode: 'development',
@@ -29,7 +30,7 @@ module.exports = merge(baseCfg, {
   plugins: [
     new ManifestPlugin({
       fileName: path.resolve('./assets-manifest-dev.json')
-    }),
+    })
   ]
 
 });

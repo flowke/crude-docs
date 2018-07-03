@@ -13,6 +13,7 @@
 - unmountComponentAtNode()
 - findDOMNode()
 - createPortal()
+- f
 
 ## 接口参考
 

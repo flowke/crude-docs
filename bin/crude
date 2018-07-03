@@ -11,19 +11,14 @@ pg
   .action(()=>pg.outputHelp());
 
 pg
-  .command('create [dir]')
-  .description('初始化项目')
-  .action((dir)=>require('../lib/script_create')(dir));
-
-pg
-  .command('start [dir]')
+  .command('start')
   .description('开始写作')
   .action(()=>require('../lib/script_start')())
 
 pg
-  .command('build [dir]')
+  .command('build')
   .description('生成网站')
   .option('-o, --output <dir>', '输出目录')
-  .action((dir, options)=>require('../lib/script_build')())
+  .action(()=>require('../lib/script_build')())
 
 pg.parse(process.argv);
