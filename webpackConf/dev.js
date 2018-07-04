@@ -7,14 +7,15 @@ const Html = require('html-webpack-plugin');
 module.exports = merge(baseCfg, {
   mode: 'development',
 
+
   entry: {
-    home: './website/home.dev.js',
-    docs: './website/docs.dev.js'
+    home: ['./website/home.dev.js'],
+    docs: ['./website/docs.dev.js']
   },
 
   output: {
     path: path.resolve(__dirname, '../.temp-script'),
-    filename: '[name]_[hash].js',
+    filename: '[name].js',
     publicPath: '/'
   },
 

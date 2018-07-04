@@ -75,7 +75,7 @@ class OutlineBlock extends Component {
     return (
       <div
         className="category-block"
-      >fdsfdfdfffdsfddfssfd
+      >
         <div
           className="block-header"
           onClick={this.toggle}

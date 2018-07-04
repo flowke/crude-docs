@@ -22,7 +22,7 @@ title: crude intro
 ReactDOM.render(element, container[, callback])
 ```
 
-把 react element 渲染到容器内.
+把 react element 渲染到容器内. fff
 
 > 如果已经被渲染过, 再次调用会触发更新, 会进行 DOM 的  diff.
 
