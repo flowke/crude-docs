@@ -18,7 +18,7 @@ const config = merge(baseCfg, {
 
   output: {
     path: path.resolve('./dist/assets'),
-    filename: 'js/[name].js'
+    filename: 'js/[name]_[hash].js'
   },
 
   module: {
@@ -60,7 +60,7 @@ const config = merge(baseCfg, {
 if(process.env.npm_lifecycle_event === 'build:assets'){
   config.plugins.push(
     new ManifestPlugin({
-      fileName: path.resolve('./assets-manifest-dist.json')
+      fileName: path.resolve(__dirname, '../assets-manifest-dist.json')
     }),
     // new Html({
     //   filename: path.resolve(__dirname, '../.temp-script/prod.html'),

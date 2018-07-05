@@ -13,7 +13,8 @@
     max-width: 1440px;
     display: flex;
     margin: 0 auto;
-    padding: 0 20px; }
+    padding: 0 20px;
+    box-sizing: border-box; }
   .app-header a {
     color: #EBEBEB;
     display: inline-block; }

@@ -3,14 +3,10 @@ import names from '../util/classNames';
 import './header.scss';
 import {Consumer as CurtLinkConsumer} from './linkContext';
 
-const {navLink, sideBar} = require('../../SiteCfg');
-
-let home = navLink[0];
-
 export default function Header(){
   return (
     <CurtLinkConsumer>
-      {curtLink=>(
+      {({curtLink,siteCfg: {navLink, sideBar}})=>(
         <header className="app-header">
           <div className="content-wrap">
             <a

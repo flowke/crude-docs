@@ -8,8 +8,9 @@ import './static/main.scss';
 import {Provider as CurtLinkProvider } from './components/linkContext';
 
 export default function Home(props){
+  let {curtLink,siteCfg} = props;
   return (
-    <CurtLinkProvider value={props.curtLink}>
+    <CurtLinkProvider value={{curtLink,siteCfg}}>
       <Frame>
         <div className="home-page" dangerouslySetInnerHTML={{__html: props.content}}>
         </div>

@@ -26,11 +26,12 @@ export default function Doc(props){
   let {
     article,
     docs,
-    curtLink
+    curtLink,
+    siteCfg,
   } = props;
 
   return (
-    <CurtLinkProvider value={curtLink}>
+    <CurtLinkProvider value={{curtLink,siteCfg}}>
       <Frame>
         <Row className="docpage-body">
           <Col span={5} className="outline-wrap">
