@@ -59,6 +59,12 @@ crude-docs-init my-doc
 
 ...待更新:frowning::frowning:
 
+#### markdown 格式
+
+  在编写 markdown 的时候, 需要使用预定义的格式, 以便解析元数据.
+
+...待更新:frowning::frowning:
+
 ## Q1 Todo
 
 - [x] 基于 react 的页面模板调试
@@ -70,6 +76,7 @@ crude-docs-init my-doc
 - [ ] 定制路径前缀
 - [ ] markdown主题样式
 - [ ] 代码语法高亮
+- [ ] favicon
 
 ## Q2 Todo
 
