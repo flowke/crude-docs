@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/flowke/crude-docs/issues"
   },
-  "homepage": "https://github.com/flowke/crude-docs#readme",
+  "homepage": "https://github.com/flowke/crude-docs#crude-docs",
   "dependencies": {
     "antd": "^3.5.4",
     "babel-cli": "^6.26.0",
