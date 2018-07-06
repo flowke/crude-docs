@@ -1,6 +1,6 @@
 {
   "name": "crude-docs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A sample docs generator and easy to use!!",
   "bin": {
     "crude": "bin/crude"
