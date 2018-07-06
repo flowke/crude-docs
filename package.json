@@ -16,15 +16,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flowke/crude-docs.git"
+    "url": "https://github.com/flowke/crude-docs.git"
   },
-  "keywords": [],
+  "keywords": [
+    "crude",
+    "docs",
+    "crude-docs",
+    "documention"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/flowke/crude-docs/issues"
   },
-  "homepage": "https://github.com/flowke/crude-docs#crude-docs",
+  "homepage": "https://github.com/flowke/crude-docs",
   "dependencies": {
     "antd": "^3.5.4",
     "babel-cli": "^6.26.0",
