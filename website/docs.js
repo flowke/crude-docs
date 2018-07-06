@@ -64,9 +64,9 @@ class OutlineBlock extends Component {
   }
 
   toggle=()=>{
-    this.setState({
-      open: !this.state.open
-    })
+    // this.setState({
+    //   open: !this.state.open
+    // })
   }
 
   render(){

@@ -1,10 +1,8 @@
 const merge = require('webpack-merge');
 const config = require('./prod');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-
-module.exports = merge.strategy({
+ module.exports = merge.strategy({
   entry: 'replace',
   output: 'replace',
   optimization: 'replace'
@@ -27,27 +25,9 @@ module.exports = merge.strategy({
     fs: false
   },
 
-  plugins: [
-
-    // new CleanWebpackPlugin(['dist/*', '.temp-script/*'], {
-    //   root: path.resolve(__dirname, '../')
-    // }),
-  ],
 
   optimization: {
-    minimize: false,
-    // splitChunks: {
-    //   automaticNameDelimiter: '-',
-    //   chunks: 'all',
-    //   cacheGroups: {
-    //     default: false,
-    //     vendors: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name: "vendor",
-    //       chunks: "all"
-    //     }
-    //   }
-    // }
+    minimize: false
   }
 
 });

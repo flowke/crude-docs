@@ -57,10 +57,14 @@ const config = merge(baseCfg, {
   }
 });
 
-if(process.env.npm_lifecycle_event === 'build:assets'){
+let {npm_lifecycle_event, script_cycle} = process.env;
+
+let isAssetsCycle = npm_lifecycle_event === 'build:assets' || script_cycle === 'build:assets';
+
+if(isAssetsCycle){
   config.plugins.push(
     new ManifestPlugin({
-      fileName: path.resolve(__dirname, '../assets-manifest-dist.json')
+      fileName: path.resolve(__dirname, '../.temp-script/assets-manifest-dist.json')
     }),
     // new Html({
     //   filename: path.resolve(__dirname, '../.temp-script/prod.html'),

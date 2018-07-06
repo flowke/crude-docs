@@ -7,12 +7,10 @@ const chalk = require('chalk');
 const {open} = require('../lib/tools');
 const serve = require('../lib/static_serve');
 
-process.docCWD = process.cwd();
-
 const rv = (...args)=> path.resolve(__dirname, '..', ...args);
 
 const shellCmd = {
-  "dev": "nodemon lib/script_start.js",
+  "dev": `node ${rv('lib/script_start.js')}`,
   "serve": `npx serve dist`,
   "clean:before": `rimraf dist ${rv('.temp-script')}`,
   "clean:after": `rimraf ${rv('.temp-script')}`,
@@ -27,7 +25,7 @@ if(shell.which('yarn')){
   hasYarn = true;
 }
 
-pg.version('0.0.1', '-v, --version');
+pg.version('0.1.0', '-v, --version');
 
 // help 命令
 pg
@@ -46,7 +44,6 @@ pg
 pg
   .command('build')
   .description('生成网站')
-  .option('-o, --output <dir>', '输出目录')
   .action(()=>{
     build();
   });
@@ -55,13 +52,21 @@ pg
   .command('preview')
   .description('生成网站并预览')
   .action(()=>{
-    console.log(chalk.cyan('开始生成静态页面--'));
+    console.log();
+    console.log(chalk.cyan('开始生成静态页面...'));
+    console.log();
     build();
+    console.log();
     console.log(chalk.cyan('开启静态服务器并打开浏览器...'));
-    serve(5000)
-    .then(()=>{
-      open(5000);
-    })
+    console.log('-------------------------');
+    console.log('¦                       ¦');
+    console.log('¦     localhost:5001    ¦');
+    console.log('¦                       ¦');
+    console.log('-------------------------');
+    serve(5001, path.resolve('./dist'))
+      .start(()=>{
+        open(5001);
+      });
 
   });
 
@@ -77,8 +82,14 @@ function runScript(script) {
 
 function build() {
   process.NODE_ENV = 'production';
+
   shell.exec(shellCmd['clean:before']);
+
+  process.env.script_cycle = 'build:assets';
   shell.exec(shellCmd['build:assets']);
+
+  process.env.script_cycle = 'build:gengrate';
   shell.exec(shellCmd['build:gengrate']);
+
   shell.exec(shellCmd['clean:after']);
 }

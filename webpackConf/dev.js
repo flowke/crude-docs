@@ -30,7 +30,7 @@ module.exports = merge(baseCfg, {
 
   plugins: [
     new ManifestPlugin({
-      fileName: path.resolve(__dirname, '../assets-manifest-dev.json')
+      fileName: path.resolve(__dirname, '../.temp-script/assets-manifest-dev.json')
     })
   ]
 

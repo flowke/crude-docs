@@ -22,12 +22,12 @@ export default function Header(){
                 if(link.page==='docs'){
                   // 取出第 0 个文档的 link
                   let {list, level} = sideBar[link.type][0];
-                  url = `/${link.type}/${level}-${list[0][0]}`;
+                  url = `/${link.type}/${level}-${list[0][0]}.html`;
                   active = link.type === curtLink;
                 }else if(link.href){
                   url = link.href
                 }else{
-                  url = `/${link.page}`;
+                  url = `/${link.page}.html`;
                   active = link.page === curtLink;
                 }
 
