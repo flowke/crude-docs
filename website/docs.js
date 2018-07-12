@@ -8,8 +8,9 @@ import {
   Icon
 } from 'antd';
 
-import './static/doc.scss';
 import './static/main.scss';
+import './static/doc.scss';
+
 
 import {Provider as CurtLinkProvider } from './components/linkContext';
 
@@ -26,12 +27,11 @@ export default function Doc(props){
   let {
     article,
     docs,
-    curtLink,
-    siteCfg,
+    navLink
   } = props;
 
   return (
-    <CurtLinkProvider value={{curtLink,siteCfg}}>
+    <CurtLinkProvider value={{navLink}}>
       <Frame>
         <Row className="docpage-body">
           <Col span={5} className="outline-wrap">
@@ -42,10 +42,15 @@ export default function Doc(props){
           <Col
             className="article-wrap"
             span={19}
-            dangerouslySetInnerHTML={{
-              __html: article
-            }}
           >
+            <div
+              className="md-content"
+              dangerouslySetInnerHTML={{
+                __html: article
+              }}
+            >
+
+            </div>
           </Col>
         </Row>
       </Frame>

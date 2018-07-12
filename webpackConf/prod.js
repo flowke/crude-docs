@@ -4,8 +4,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const Html = require('html-webpack-plugin');
 const path = require('path');
-
+const {pathPrefix} = require(path.resolve('./SiteCfg'));
+const {formatPrefix} = require('../lib/utils');
 const merge = require('webpack-merge');
+
+let outputPath = '';
+let publicPath = '';
+let {pg_command} = process.env;
+
+
+if(pg_command === 'build'){
+  outputPath = path.join(process.cwd(), 'dist');
+}
+if(pg_command === 'preview'){
+  outputPath = path.join(process.cwd(), 'dist', formatPrefix(pathPrefix));
+}
 
 
 const config = merge(baseCfg, {
@@ -17,8 +30,9 @@ const config = merge(baseCfg, {
   },
 
   output: {
-    path: path.resolve('./dist/assets'),
-    filename: 'js/[name]_[hash].js'
+    path: outputPath,
+    filename: 'assets/js/[name]_[hash].js',
+    publicPath: formatPrefix(pathPrefix, true),
   },
 
   module: {
@@ -36,8 +50,8 @@ const config = merge(baseCfg, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[name].css'
+      filename: 'assets/css/[name].css',
+      chunkFilename: 'assets/css/[name].css'
     })
   ],
 

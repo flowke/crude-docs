@@ -73,10 +73,12 @@ crude-docs-init my-doc
 - [x] 写作模式
 - [x] 生成网站
 - [x] 预览模式
-- [ ] 定制路径前缀
-- [ ] markdown主题样式
-- [ ] 代码语法高亮
+- [x] 定制路径前缀
+- [x] markdown主题样式
+- [x] 代码语法高亮
 - [ ] favicon
+- [ ] 避开调试服务器端口冲突
+- [x] md跳转
 
 ## Q2 Todo
 

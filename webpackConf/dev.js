@@ -3,8 +3,9 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 const Html = require('html-webpack-plugin');
+const {pathPrefix} = require(path.resolve('./SiteCfg'));
 
-module.exports = merge(baseCfg, {
+const cfg = merge(baseCfg, {
   mode: 'development',
 
 
@@ -16,7 +17,7 @@ module.exports = merge(baseCfg, {
   output: {
     path: path.resolve(__dirname, '../.temp-script'),
     filename: '[name]_[name].js',
-    publicPath: '/'
+    publicPath: pathPrefix ? path.join('/', pathPrefix, '/') : '/',
   },
 
   module: {
@@ -35,3 +36,5 @@ module.exports = merge(baseCfg, {
   ]
 
 });
+
+module.exports = cfg;

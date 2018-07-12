@@ -6,6 +6,10 @@ const path = require('path');
 const chalk = require('chalk');
 const {open} = require('../lib/tools');
 const serve = require('../lib/static_serve');
+const utils = require('../lib/utils');
+const SiteCfg = require(path.resolve('./SiteCfg'));
+
+let prefix = utils.formatPrefix(SiteCfg.pathPrefix);
 
 const rv = (...args)=> path.resolve(__dirname, '..', ...args);
 
@@ -16,7 +20,6 @@ const shellCmd = {
   "clean:after": `rimraf ${rv('.temp-script')}`,
   "build:gengrate": `node ${rv('lib/script_build')}`,
   "build:assets": `node ${rv('lib/build_assets')}`
-
 };
 
 let hasYarn = false;
@@ -45,6 +48,7 @@ pg
   .command('build')
   .description('生成网站')
   .action(()=>{
+    process.env.pg_command = 'build';
     build();
   });
 
@@ -52,6 +56,7 @@ pg
   .command('preview')
   .description('生成网站并预览')
   .action(()=>{
+    process.env.pg_command = 'preview';
     console.log();
     console.log(chalk.cyan('开始生成静态页面...'));
     console.log();
@@ -60,12 +65,12 @@ pg
     console.log(chalk.cyan('开启静态服务器并打开浏览器...'));
     console.log('-------------------------');
     console.log('¦                       ¦');
-    console.log('¦     localhost:5001    ¦');
+    console.log('¦     localhost:5002    ¦');
     console.log('¦                       ¦');
     console.log('-------------------------');
-    serve(5001, path.resolve('./dist'))
+    serve(5002, path.join(process.cwd(), './dist'))
       .start(()=>{
-        open(5001);
+        open(`http://localhost:${5002}${prefix}`);
       });
 
   });

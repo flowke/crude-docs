@@ -1,7 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
 
@@ -12,9 +9,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        exclude: [
+          /node_modules/
+        ],
+        include: [
+          /crude-docs/
+        ]
       },
-
     ]
   }
 
