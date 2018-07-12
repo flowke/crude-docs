@@ -33,12 +33,13 @@ npm i -g crude-docs-init
 # my-doc 是你项目的名字, 你可以自己命名
 crude-docs-init my-doc
 ```
-一旦你使用了 `crude-docs-init` 初始化了一个项目, 便会帮你自动安装 `crude-docs`, 并且我已经为你进行了一些模板配置, 你可以直接在上面进行修改和继续工作.
+一旦你使用了 `crude-docs-init` 初始化了一个项目, 便会帮你自动安装 `crude-docs`, 并且我已经为你进行了一些模板配置, 你可以直接在上面进行修改和继续工作.
 
 ## 使用
 
 > 如果你还没有安装`crude-docs-init` , 你应该先安装 `crude-docs-init`, 并生成一个 `crude-docs` 项目.
-目
+
+
 #### 目录结构
 
 ...待更新:frowning::frowning:
