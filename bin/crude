@@ -14,7 +14,7 @@ let prefix = utils.formatPrefix(SiteCfg.pathPrefix);
 const rv = (...args)=> path.resolve(__dirname, '..', ...args);
 
 const shellCmd = {
-  "dev": `node ${rv('lib/script_start.js')}`,
+  "dev": `nodemon ${rv('lib/script_start.js')}`,
   "serve": `npx serve dist`,
   "clean:before": `rimraf dist ${rv('.temp-script')}`,
   "clean:after": `rimraf ${rv('.temp-script')}`,
